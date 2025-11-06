@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             // 使用when替代if
-            nameLabel.text = "姓名:\n%s".format(playerName)
+            nameLabel.text = "姓名:\n$playerName"
 
             val playerMove = when {
                 scissorButton.isChecked -> MORA.SCISSOR // 剪刀
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 MORA.PAPER -> "布"
                 else -> "神奇的情況出現了！！！"
             }
-            playerMoveLabel.text = "我方出拳:\n%s".format(playerMoveText)
+            playerMoveLabel.text = "我方出拳:\n$playerMoveText"
 
             val computerMove = MORA.values().random() // 使用.random()
             val computerMoveText = when (computerMove) {
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 MORA.PAPER -> "布"
                 else -> "神奇的情況出現了！！！"
             }
-            computerMoveLabel.text = "電腦出拳:\n%s".format(computerMoveText)
+            computerMoveLabel.text = "電腦出拳:\n$computerMoveText"
 
             when {
                 playerMove == computerMove -> {
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 ((playerMove == MORA.STONE && computerMove == MORA.SCISSOR) ||
                 (playerMove == MORA.SCISSOR && computerMove == MORA.PAPER) ||
                 (playerMove == MORA.PAPER && computerMove == MORA.STONE)) -> {
-                    winnerLabel.text = "勝利者\n%s".format(playerName)
+                    winnerLabel.text = "勝利者\n$playerName"
                     resultText.text = "恭喜您獲勝!"
                 }
                 else -> {
